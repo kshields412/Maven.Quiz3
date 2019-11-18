@@ -1,11 +1,12 @@
 package rocks.zipcode.io.quiz3.collections;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * @author leon on 10/12/2018.
  */
 public class Student {
+    ArrayList<Lab> labs = new ArrayList<>();
 
     public Student() {
         this(null);
@@ -22,6 +23,8 @@ public class Student {
     }
 
     public void forkLab(Lab lab) {
+
+
     }
 
     public LabStatus getLabStatus(String labName) {
