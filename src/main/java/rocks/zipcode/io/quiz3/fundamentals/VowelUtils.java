@@ -8,28 +8,36 @@ public class VowelUtils {
     final static String vowels = "aeiouy";
 
     public static Boolean isVowel(Character character){
+        Character lcChar = Character.toLowerCase(character);
+        Boolean isAVowel = false;
         for(int i = 0; i < vowels.length(); i++){
-            if(character == vowels.charAt(i)){
-                return true;
+            if(lcChar == vowels.charAt(i)){
+                isAVowel = true;
             } }
-        return false;
+        return isAVowel;
     }
 
 
     public static Boolean hasVowels(String word) {
-        String lcWord = word.toLowerCase();
-        for(int i = 0; i < lcWord.length(); i++) {
-            if (vowels.contains(String.valueOf(lcWord.charAt(i)))) {
-                return true;
+        char[] lcWord = word.toLowerCase().toCharArray();
+        char[] vowelsArr = vowels.toCharArray();
+        Boolean hasAVowel = false;
+
+        for(int i = 0; i < vowelsArr.length; i++){
+            for(int j = 0; j < lcWord.length; j++) {
+                if (lcWord[j] == vowelsArr[i]) {
+                    hasAVowel = true;
+                }
             }
         }
-        return false;
+        return hasAVowel;
     }
 
     public static Integer getIndexOfFirstVowel(String word){
-        String lcWord = word.toLowerCase();
-        for (int i = 0; i < lcWord.length(); i++) {
-            if (lcWord.contains(String.valueOf(vowels.charAt(i)))) {
+        char[] lcWord = word.toLowerCase().toCharArray();
+        char index0 = lcWord[0];
+        for (int i = 0; i < lcWord.length; i++) {
+            if (index0 == vowels.charAt(i)) {
                 return i;
             }
         }
