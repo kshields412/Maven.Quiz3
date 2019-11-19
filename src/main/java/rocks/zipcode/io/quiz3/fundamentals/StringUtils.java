@@ -1,6 +1,8 @@
 package rocks.zipcode.io.quiz3.fundamentals;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author leon on 09/12/2018.
@@ -24,11 +26,9 @@ public class StringUtils {
 
     public static String[] getAllSubStrings(String string) {
         int count = string.length() * (string.length() + 1) / 2;
-        ArrayList<String> substrings = new ArrayList<>(count);
-
+        Set<String> substrings = new HashSet<>(count);
         for(int i = 0;i < string.length();i++) {
             for (int j = i + 1; j <= string.length(); j++) {
-//                if(string[i] == )
                 substrings.add(string.substring(i, j));
             }
         }

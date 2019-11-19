@@ -5,7 +5,7 @@ import rocks.zipcode.io.quiz3.fundamentals.PigLatinGenerator;
  * @author leon on 09/12/2018.
  */
 public class VowelUtils {
-    final static String vowels = "aeiouy";
+    final static String vowels = "aeiou";
 
     public static Boolean isVowel(Character character){
         Character lcChar = Character.toLowerCase(character);
@@ -27,7 +27,11 @@ public class VowelUtils {
             for(int j = 0; j < lcWord.length; j++) {
                 if (lcWord[j] == vowelsArr[i]) {
                     hasAVowel = true;
+                    break;
                 }
+            }
+            if(hasAVowel){
+                break;
             }
         }
         return hasAVowel;
@@ -35,13 +39,13 @@ public class VowelUtils {
 
     public static Integer getIndexOfFirstVowel(String word){
         char[] lcWord = word.toLowerCase().toCharArray();
-        char index0 = lcWord[0];
         for (int i = 0; i < lcWord.length; i++) {
-            if (index0 == vowels.charAt(i)) {
-                return i;
-            }
-        }
+            for (int j = 0; j < vowels.length(); j++) {
+                if (lcWord[i] == vowels.charAt(j)) {
+                    return i;
+                } } }
         // handle cases where a vowel is not found
+        // index of each vowel might be easier
         return -1;
     }
     //https://stackoverflow.com/questions/26660306/finding-where-the-first-vowel-in-a-word-occurs
